@@ -1,6 +1,6 @@
 # Vint Cerf 
 - otec internetu
-- americký informatik narozený 1943
+- americký informatik narozený r. 1943
 - navrhl protokol TCP/IP s Bobem Kahnem
 ## TCP/IP
 **TCP** (Transmission Control Protocol) zajišťuje, že data jsou správně rozdělena do paketů, odeslána a správně se složí na druhém konci.
