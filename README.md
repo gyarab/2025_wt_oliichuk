@@ -1,7 +1,7 @@
-## popis funkci souboru v tomto adresari 
+# popis funkci souboru v tomto adresari 
 
 ## referat.md
-<p> - DU referat osobnosti **VINT CERF** </p>
+- DU referat osobnosti **VINT CERF** 
 
 ## prvni_web 
-<p> - web obsahujici 3 .html soubory+ style.css, vyuziva responzivni menu pomoci bootstrapu </p>
+- web obsahujici 3 .html soubory+ style.css, vyuziva responzivni menu pomoci bootstrapu 
