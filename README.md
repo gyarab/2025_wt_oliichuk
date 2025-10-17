@@ -4,4 +4,9 @@
 - DU referat osobnosti **VINT CERF** 
 
 ## prvni_web 
-- web obsahujici 3 .html soubory+ style.css, vyuziva responzivni menu pomoci bootstrapu 
+- web obsahujici 3 .html soubory+ style.css, vyuziva responzivni menu pomoci bootstrapu
+
+## README.md 
+
+## microsite 
+- microsite cilem ktereho je pripojeni uzivatele k discord serveru 
