@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Game</title>
+
+    <style>
+        body {
+            font-family: system-ui, sans-serif;
+            max-width: 600px;
+            margin: 40px auto;
+            text-align: center;
+        }
+        input {
+            padding: 3px;
+            margin: 6px;
+            font-size: 1rem;
+            width: 80px;
+        }
+        button {
+            padding: 6px 12px;
+            font-size: 1rem;
+            margin: 5px;
+            cursor: pointer;
+        }
+        #message {
+            margin-top: 15px;
+            font-weight: bold;
+        }
+        img { 
+            max-width: 90%;
+            max-height: 90%;
+        }
+    </style>
+</head>
+<body>
+    <h1>JS Game</h1>
+    <p id="message">
+        Hádej číslo od 1 do 20
+    </p>
+
+    <input id="guess" type="number" name="guess">
+    <input id="guessBtn" type="button" value="Zkus">
+    <br>
+    <input id="newGameBtn" type="button" value="Nova hra" onclick="newGame()">
+    <div id="image-container"></div>
+    
+    <p>
+        Počet pokusů <span id="attempts">0</span>.
+    </p>
+
+    <script>
+        let secretNumber
+        let attempts
+
+        const attemptsEl = document.getElementById('attempts')
+        const messageEl = document.getElementById('message')
+
+        function newGame() {
+            removeImage(); 
+            messageEl.textContent = 'Hádej číslo od 1 do 20';
+            document.getElementById("guess").value = "";
+            support() // podpora uzivatelu
+            secretNumber = Math.floor(Math.random() * 20) + 1
+            attempts = 0
+            attemptsEl.textContent = attempts
+
+            console.log('--- NEW GAME ---')
+            console.log('tajne cislo je', secretNumber)
+        }
+
+        function checkGuess() {
+            attempts++
+            console.log('number of attempts:', attempts)
+            const attemptsEl = document.getElementById('attempts')
+
+            const inputEl = document.getElementById('guess')
+            const guess = Number(inputEl.value)
+            console.log('user input:', guess)
+
+            attemptsEl.textContent = attempts
+            // TODO funkce pro kontrolu hadani cisla a vypis vysledku do elementu messageEl
+            if (guess > secretNumber) { 
+                messageEl.textContent = 'prilis vysoke cislo';
+            } else if (guess < secretNumber) { 
+                messageEl.textContent = 'prilis nizke cislo';
+            } else { 
+                messageEl.textContent = 'spravne';
+                addImage(); 
+            }
+        }
+
+        function addImage() {
+            const img = document.createElement('img');
+            img.src = "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2F736x%2F82%2Fb4%2Fd8%2F82b4d88e8c349fa9a495041da61660e7.jpg&f=1&nofb=1&ipt=3acbac5ea03ce02c58b0fccfd29323c1a04d7456baea52a65e41c00932aa3052";
+            img.id = "myImage";
+            document.getElementById("image-container").appendChild(img);
+        }
+        function removeImage() {
+            const img = document.getElementById("myImage");
+            if (img) {
+                img.remove();
+            }
+        }
+
+        document.getElementById('guessBtn').addEventListener('click', checkGuess)
+        document.getElementById('guess').addEventListener('keydown', function (e) {
+            if (e.key === 'Enter') {
+                checkGuess()
+                e.srcElement.value = ''
+            }
+        })
+
+        function hlaska() {
+            alert('Pospěšte si, hra běží!')
+        }
+
+        function support() {
+            // zobrazeni hlasky po 10 sekundach
+            window.setTimeout(hlaska, 10000)
+        }
+
+        newGame()
+    </script>
+</body>
+</html>
