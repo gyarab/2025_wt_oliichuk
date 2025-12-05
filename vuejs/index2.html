@@ -5,27 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VueJS</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <style> 
+        .card { 
+            padding: 20px; 
+            margin-top: 20px; 
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); 
+            border-radius: 5px;
+        }
+        p { 
+            text-align: left;
+        }
+    </style>
 </head>
 <body>
-    <div class="container text-center">
-        <h1>VueJS</h1>
-        <a href="https://vuejs.org/guide/introduction" target="_blank">VueJS docs</a>
+    <div class="container text-center"></div>
+        <h1>Registrace na meziplanetarni vylet</h1>
         <div id="app">
             <div class="card">
-                <form>
-                    <div>
+                <form class="d-flex flex-column gap-3">
+                    <div> 
+                        <p>Jmeno astronauta:</p>
                         <input class="form-control" type="text" id="name" name="name">
                     </div>
                     <div>
+                        <p>Destinace:</p>
                         <select class="form-select" name="planet">
                             <option value="Mars">Mars</option>
                             <option value="Venuše">Venuše</option>
                         </select>
                     </div>
                     <div>
+                        <p>Pocet dni:</p>
                         <input class="form-control" type="number" id="days" name="days">
                     </div>
-                    <div>
+                    <div class="" style="text-align: left;">
                         <input class="form-check-input" type="checkbox" id="terms">
                         <label class="form-check-label" for="terms">Souhlasím s podmínkami</label>
                     </div>
@@ -37,6 +50,13 @@
                 <br>
                 <button v-on:click="count++">Kliknuto: {{ count }}</button> -->
             </div>
+            <div class="card"> 
+                <h2>Informace o vyletu</h2>
+                <p>Jmeno astronauta: {{ trip.name }}</p>
+                <p>Destinace: {{ trip.destination }}</p>
+                <p>Pocet dni: {{ trip.days }}</p>
+                <p>Podminky schvaleny: {{ trip.accepted }}</p>
+            </div>
         </div>
     </div>
 
@@ -44,15 +64,6 @@
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 
     <script>
-        const app = Vue.createApp({
-            data() {
-                return {
-                    message: "Hello World!",
-                    counter: 0
-                }
-            }
-        })
-
     const app = Vue.createApp({
         data() {
             return {
